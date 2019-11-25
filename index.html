@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<title>Kalkylator</title>
+	
+	<!-- Vue -->
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- production version, optimized for size and speed -->
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<div class="calculator">
+				<div class="btns">
+					<input type="text" disabled id="calculation-screen" :value="calculation">
+					<div v-for="btnGroup in btnGroups">
+						<div class="row">
+							<div v-for="btn in btnGroup">
+								<div class="col-3" @click="addToCalculation(btn['val'])">
+									<button :class="'btn btn-' + btn['type']" v-text="btn['val']"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
