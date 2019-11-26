@@ -95,7 +95,13 @@ let app = new Vue({
             }
         },
         addToCalculation(chr) {
-            this.calculation += chr;
+            if (chr === 'C') {
+                this.clear();
+            } else if (chr === '=') {
+                this.calculate();
+            } else {
+                this.calculation += chr;
+            }
         },
         chunk(array, size) {
             const chunked_arr = [];
